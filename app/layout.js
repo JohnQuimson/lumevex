@@ -1,6 +1,8 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
 
+import { ThemeProvider } from '@/components/theme-provider';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -11,16 +13,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
    return (
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
          <body className={`${inter.className}`}>
-            {/* header */}
-            <main className="min-h-screen">{children}</main>
-            {/* footer */}
-            <footer>
-               <div className="container mx-auto px-4 py-8">
-                  <p>footer</p>
-               </div>
-            </footer>
+            <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+               {/* header */}
+
+               <main className="min-h-screen">{children}</main>
+
+               {/* footer */}
+               <footer className="bg-muted/50 py-12">
+                  <div className="container mx-auto px-4 text-center text-gray-200">
+                     <p>footer</p>
+                  </div>
+               </footer>
+            </ThemeProvider>
          </body>
       </html>
    );
