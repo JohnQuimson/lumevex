@@ -11,7 +11,7 @@ const header = () => {
          <nav className="container mx-auto flex h-16 items-center justify-between px-4">
             <Link href="/">
                <Image
-                  src="/logo-single.png"
+                  src="/logo-single-ld.png"
                   width={200}
                   height={60}
                   className="h-10 w-auto object-contain"
